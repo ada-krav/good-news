@@ -4,6 +4,9 @@
 {% block content %}
   <h1>
     Topic List
+    <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
+      +
+    </a>
   </h1>
 
   {% if topic_list %}
@@ -15,6 +18,8 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
 
       </tr>
 
@@ -26,6 +31,17 @@
           <td>
               {{ topic.name }}
           </td>
+          <td>
+              <a href="{% url 'agency:topic-update' pk=topic.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'agency:topic-delete' pk=topic.id %}">
+                Delete
+              </a>
+            </td>
         </tr>
       {% endfor %}
     </table>
