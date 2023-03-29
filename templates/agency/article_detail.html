@@ -4,6 +4,16 @@
   <h1>
     {{ article.title }}
   </h1>
+  <h3>Topic: {{ article.topic.name }}</h3>
+  <h2>
+    <a href="{% url 'agency:article-delete' pk=article.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'agency:article-update' pk=article.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h2>
   <p>
     {{ article.content }}
   </p>
