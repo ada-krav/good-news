@@ -47,6 +47,11 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
         return queryset
 
 
+class TopicCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("agency:topic-list")
+
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
     template_name = "agency/redactor_list.html"
