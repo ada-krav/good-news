@@ -86,6 +86,10 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
         return queryset
 
 
+class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Redactor
+
+
 class ArticleListView(LoginRequiredMixin, generic.ListView):
     model = Article
     paginate_by = 10
