@@ -90,3 +90,7 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
                 title__icontains=form.cleaned_data["title"]
             )
         return queryset
+
+
+class ArticleDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Article
