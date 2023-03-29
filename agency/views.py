@@ -59,6 +59,10 @@ class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("agency:topic-list")
 
 
+class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Topic
+
+
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
     template_name = "agency/redactor_list.html"
