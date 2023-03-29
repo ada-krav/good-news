@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
-from agency.forms import TopicSearchForm, RedactorSearchForm
+from agency.forms import TopicSearchForm, RedactorSearchForm, ArticleSearchForm
 from agency.models import Redactor, Article, Topic
 
 
@@ -54,7 +54,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(RedactorListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        contex["search_form"] = TopicSearchForm(
+        contex["search_form"] = RedactorSearchForm(
             initial={"username": username}
         )
         return contex
@@ -73,3 +73,20 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
     model = Article
     paginate_by = 10
     template_name = "agency/article_list.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        contex = super(ArticleListView, self).get_context_data(**kwargs)
+        title = self.request.GET.get("title", "")
+        contex["search_form"] = ArticleSearchForm(
+            initial={"title": title}
+        )
+        return contex
+
+    def get_queryset(self):
+        queryset = Article.objects.all()
+        form = ArticleSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                title__icontains=form.cleaned_data["title"]
+            )
+        return queryset

@@ -5,7 +5,10 @@
     Article list
   </h1>
   {% if article_list %}
-
+    <form action="" method="get" class="form-inline">
+      {{ search_form|crispy }}
+      <input class="btn btn-primary" type="submit" value="🔍">
+    </form>
     <table class="table">
       <tr>
         <th>ID</th>
