@@ -45,3 +45,8 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
             )
         return queryset
 
+
+class RedactorListView(LoginRequiredMixin, generic.ListView):
+    model = Redactor
+    template_name = "agency/redactor_list.html"
+    paginate_by = 10
