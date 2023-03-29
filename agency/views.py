@@ -103,6 +103,11 @@ class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("agency:redactor-list")
 
 
+class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("agency:redactor-list")
+
+
 class ArticleListView(LoginRequiredMixin, generic.ListView):
     model = Article
     paginate_by = 10
