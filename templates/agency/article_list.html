@@ -20,7 +20,7 @@
       {% for article in article_list %}
       <tr>
         <td>
-            {{ article.id }}
+          <a href="{% url "agency:article-detail" pk=article.id %}"> {{ article.id }}</a>
         </td>
         <td>
             {{ article.title }}
