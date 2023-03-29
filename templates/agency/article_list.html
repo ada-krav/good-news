@@ -3,6 +3,9 @@
 {% block content %}
   <h1>
     Article list
+    <a href="{% url 'agency:article-create' %}" class="btn btn-primary link-to-page">
+      +
+    </a>
   </h1>
   {% if article_list %}
     <form action="" method="get" class="form-inline">
