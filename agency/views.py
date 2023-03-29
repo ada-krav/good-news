@@ -67,3 +67,9 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
                 username__icontains=form.cleaned_data["username"]
             )
         return queryset
+
+
+class ArticleListView(LoginRequiredMixin, generic.ListView):
+    model = Article
+    paginate_by = 10
+    template_name = "agency/article_list.html"
