@@ -127,7 +127,7 @@ th {
 .a-delete{
     color: var(--third);
 }
-.redactor-detail hr{
+hr{
     height: 8px;
     background-image: linear-gradient(to right, var(--first), var(--second));
 
@@ -143,6 +143,10 @@ th {
 }
 .redactor-detail h4{
     color: var(--fourth);
+}
+
+h3.delete-conf{
+    color: var(--first);
 }
 /* --------- LIST-VIEW ---------*/
 /* --------- FOOTER ---------*/
