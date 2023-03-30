@@ -37,13 +37,15 @@
             {% for article in article_list %}
             <tr>
               <td>
-                <a href="{% url "agency:article-detail" pk=article.id %}"> {{ article.id }}</a>
+                {{ article.id }}
               </td>
               <td>
+                <a href="{{ article.get_absolute_url }}">
                   {{ article.title }}
+                </a>
               </td>
               <td>
-                  {{ article.topic.name }}
+                {{ article.topic.name }}
               </td>
             </tr>
             {% endfor %}
