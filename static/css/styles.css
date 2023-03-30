@@ -57,7 +57,9 @@ body {
     font-weight: 600;
     margin-top: 77px;
    }
-
+.regular-title{
+    margin-top: 5px;
+}
 .bottom-img{
     width: 100%;
 }
@@ -76,6 +78,28 @@ body {
 
 }
 /* --------- DYN-CONTENT ---------*/
+/* --------- LIST-VIEW ---------*/
+a {
+  font-weight: bold;
+    color: var(--first);
+}
+th {
+    color: var(--fourth);
+}
+
+.btn-primary {
+    background-color: var(--fourth);
+    border-color: var(--fourth);
+    margin-left: 5px;
+
+}
+.btn-primary:hover {
+    background-color: var(--third);
+    border-color: var(--third);
+    color: var(--fourth);
+    margin-left: 5px;
+}
+/* --------- LIST-VIEW ---------*/
 /* --------- FOOTER ---------*/
 .footer {
     background-image: linear-gradient(to right, var(--first), var(--second));
