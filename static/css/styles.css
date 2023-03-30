@@ -99,6 +99,10 @@ th {
     color: var(--fourth);
     margin-left: 5px;
 }
+
+.a-delete{
+    color: var(--third);
+}
 /* --------- LIST-VIEW ---------*/
 /* --------- FOOTER ---------*/
 .footer {

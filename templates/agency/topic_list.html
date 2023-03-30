@@ -2,51 +2,69 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>
-    Topic List
-    <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
-      +
-    </a>
-  </h1>
-
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="banner-title regular-title">
+            Topic list
+          </h1>
+        </div>
+      </div>
+    </div>
+      {% load static %}
+      <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+  <section class="table-list">
   {% if topic_list %}
-    <form action="" method="get" class="form-inline">
-      {{ search_form|crispy }}
-      <input class="btn btn-primary" type="submit" value="🔍">
-    </form>
-    <table class="table">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <form action="" method="get" class="form-inline">
+              {{ search_form|crispy }}
+              <input class="btn btn-primary" type="submit" value="🔍">
+              <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
+              Add New Topic
+            </a>
+            </form>
+          </div>
+
+    <table class="table table-borderless">
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Update</th>
         <th>Delete</th>
-
       </tr>
-
       {% for topic in topic_list %}
-        <tr>
-          <td>
-              {{ topic.id }}
-          </td>
-          <td>
-              {{ topic.name }}
-          </td>
-          <td>
-              <a href="{% url 'agency:topic-update' pk=topic.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'agency:topic-delete' pk=topic.id %}">
-                Delete
-              </a>
-            </td>
-        </tr>
+      <tr>
+        <td>
+          {{ topic.id }}
+        </td>
+        <td>
+          {{ topic.name }}
+        </td>
+        <td>
+          <a href="{% url 'agency:topic-update' pk=topic.id %}">
+            Update
+          </a>
+        </td>
+        <td>
+          <a class="a-delete" href="{% url 'agency:topic-delete' pk=topic.id %}">
+            Delete
+          </a>
+        </td>
+      </tr>
       {% endfor %}
     </table>
+        </div>
+      </div>
+    </div>
+
 
   {% else %}
       <p>There are no topics in the service.</p>
   {% endif %}
+  </section>
 {% endblock %}
