@@ -34,7 +34,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Update</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
       {% for topic in topic_list %}
@@ -47,7 +47,7 @@
         </td>
         <td>
           <a href="{% url 'agency:topic-update' pk=topic.id %}">
-            Update
+            Edit
           </a>
         </td>
         <td>
