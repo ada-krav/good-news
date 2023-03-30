@@ -1,8 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Good News Agency</h1>
-    <p>Network for people in denial</p>
+    <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="banner-title">Good News Agency</h1>
+
+          <p>Network for people in denial</p>
+        </div>
+        <div class="col-md-6 text-center">
+          {% load static %}
+          <img src="{% static 'images/team.png' %}" alt="Happy people" class="img-fluid">
+
+
+        </div>
+      </div>
+    </div>
+      {% load static %}
+          <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+    </section>
+  <section class="dyn-content">
     <h2>Dynamic content</h2>
     <p>The Good News Agency has the following record counts:</p>
     <ul>
@@ -10,5 +28,6 @@
         <li><strong>Redactors:</strong> {{ num_redactors }}</li>
         <li><strong>Topics:</strong> {{ num_topics }}</li>
     </ul>
+  </section>
 
 {% endblock %}

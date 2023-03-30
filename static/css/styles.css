@@ -2,11 +2,11 @@
   --first: #C0EEE4;
   --second: #F8F988;
   --third: #FFCAC8;
-  --fourth: #FF9E9E
+  --fourth: #F48484
 
 }
 
-
+/* --------- SIDEBAR ---------*/
 .navbar {
     background-image: linear-gradient(to right, var(--first), var(--second));
     padding: 0 !important;
@@ -39,3 +39,21 @@
     float: right;
     margin: 0 2px 0 2px;
 }
+/* --------- SIDEBAR ---------*/
+/* --------- BANNER ---------*/
+.banner {
+    background-image: linear-gradient(to right, var(--first), var(--second));
+    color: var(--fourth);
+    padding-top: 5%;
+}
+
+.banner-title{
+
+    font-weight: 600;
+    margin-top: 77px;
+   }
+
+.bottom-img{
+    width: 100%;
+}
+/* --------- BANNER ---------*/
