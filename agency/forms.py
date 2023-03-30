@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
 
 from agency.models import Article, Redactor
 
@@ -58,6 +59,9 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
         )
 
+    def clean_years_of_experience(self):
+        return validate_experience(self.cleaned_data["years_of_experience"])
+
 
 class RedactorUpdateForm(forms.ModelForm):
     class Meta:
@@ -67,3 +71,16 @@ class RedactorUpdateForm(forms.ModelForm):
             "first_name",
             "last_name"
         ]
+
+    def clean_years_of_experience(self):
+        return validate_experience(self.cleaned_data["years_of_experience"])
+
+
+
+def validate_experience(years: int):
+    if years < 0:
+        raise ValidationError("Experience can`t be less that 0 years")
+    elif years > 100:
+        raise ValidationError("Sorry, we currently don`t cater to the vampires")
+
+    return years
