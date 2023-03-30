@@ -12,6 +12,7 @@ body {
 }
 
 /* --------- SIDEBAR ---------*/
+
 .navbar {
     background-image: linear-gradient(to right, var(--first), var(--second));
     padding: 0 !important;
@@ -20,6 +21,9 @@ body {
 
 .navbar-brand{
     padding: 20px 20px;
+}
+.navbar-brand img{
+    height: 60px;
 }
 .navbar-nav li {
     padding: 0 10px;
@@ -44,6 +48,7 @@ body {
     float: right;
     margin: 0 2px 0 2px;
 }
+
 /* --------- SIDEBAR ---------*/
 /* --------- BANNER ---------*/
 .banner {

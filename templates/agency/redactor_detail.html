@@ -24,7 +24,7 @@
     </a>
 
     <a href="{% url 'agency:redactor-update' pk=redactor.id %}" class="btn btn-secondary link-to-page">
-      Update
+      Edit
     </a>
         </p>
 
@@ -49,8 +49,10 @@
 
     {% for article in redactor.articles.all %}
         <hr>
-        <p><strong>Title:</strong> {{ article.title }}</p>
-        <p><strong>Topic:</strong> {{ article.topic.name }}</p>
+        <p><strong>Topic:</strong>
+          <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        <p><strong>Title:</strong>{{ article.topic.name }}</p>
+        </p>
         <p><strong>Id:</strong> {{article.id}}</p>
         {% empty %}
         <p>No Articles yet</p>

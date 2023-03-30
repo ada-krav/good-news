@@ -27,19 +27,31 @@
         <div class="col-md-4 dyn-content">
           {% load static %}
           <img src="{% static 'images/articles.png' %}" alt="" class="dyn-img">
-          <h4>{{ num_articles }} Articles</h4>
+          <h4>
+            <a href="{% url 'agency:article-list' %}">
+              {{ num_articles }} Articles
+            </a>
+          </h4>
           <p>Jump straight into reading</p>
         </div>
         <div class="col-md-4 dyn-content">
           {% load static %}
           <img src="{% static 'images/redactors.png' %}" alt="" class="dyn-img">
-          <h4>{{ num_redactors }} Redactors</h4>
+          <h4>
+            <a href="{% url 'agency:redactor-list' %}">
+              {{ num_redactors }} Redactors
+            </a>
+          </h4>
           <p>They all said hello</p>
         </div>
         <div class="col-md-4 dyn-content">
           {% load static %}
           <img src="{% static 'images/topics.png' %}" alt="" class="dyn-img">
-          <h4>{{ num_topics }} Topics</h4>
+          <h4>
+            <a href="{% url 'agency:topic-list' %}">
+              {{ num_topics }} Topics
+            </a>
+          </h4>
           <p>What is this all about</p>
         </div>
       </div>
