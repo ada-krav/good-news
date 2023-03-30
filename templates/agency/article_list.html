@@ -1,40 +1,58 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
-  <h1>
-    Article list
-    <a href="{% url 'agency:article-create' %}" class="btn btn-primary link-to-page">
-      +
-    </a>
-  </h1>
+    <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="banner-title regular-title">
+            Article list
+          </h1>
+        </div>
+      </div>
+    </div>
+      {% load static %}
+      <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+  <section class="table-list">
   {% if article_list %}
-    <form action="" method="get" class="form-inline">
-      {{ search_form|crispy }}
-      <input class="btn btn-primary" type="submit" value="🔍">
-    </form>
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Topic</th>
-
-      </tr>
-
-      {% for article in article_list %}
-      <tr>
-        <td>
-          <a href="{% url "agency:article-detail" pk=article.id %}"> {{ article.id }}</a>
-        </td>
-        <td>
-            {{ article.title }}
-        </td>
-        <td>
-            {{ article.topic.name }}
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <form action="" method="get" class="form-inline">
+              {{ search_form|crispy }}
+              <input class="btn btn-primary" type="submit" value="🔍">
+              <a href="{% url 'agency:article-create' %}" class="btn btn-primary link-to-page">
+              Add New Article
+              </a>
+            </form>
+          </div>
+          <table class="table table-borderless">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Topic</th>
+            </tr>
+            {% for article in article_list %}
+            <tr>
+              <td>
+                <a href="{% url "agency:article-detail" pk=article.id %}"> {{ article.id }}</a>
+              </td>
+              <td>
+                  {{ article.title }}
+              </td>
+              <td>
+                  {{ article.topic.name }}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
   {% else %}
     <p>There are no articles yet</p>
   {% endif %}
+  </section>
 {% endblock %}
