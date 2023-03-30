@@ -1,0 +1,41 @@
+:root {
+  --first: #C0EEE4;
+  --second: #F8F988;
+  --third: #FFCAC8;
+  --fourth: #FF9E9E
+
+}
+
+
+.navbar {
+    background-image: linear-gradient(to right, var(--first), var(--second));
+    padding: 0 !important;
+
+}
+
+.navbar-brand{
+    padding: 20px 20px;
+}
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: var(--fourth) !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.navbar-text{
+    float: right;
+    text-align: left;
+}
+.navbar-toggler{
+    outline: none;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
