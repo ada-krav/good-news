@@ -5,6 +5,11 @@
   --fourth: #F48484
 
 }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 /* --------- SIDEBAR ---------*/
 .navbar {
@@ -71,3 +76,19 @@
 
 }
 /* --------- DYN-CONTENT ---------*/
+/* --------- FOOTER ---------*/
+.footer {
+    background-image: linear-gradient(to right, var(--first), var(--second));
+    color: var(--fourth);
+
+    margin-top: auto;
+}
+
+.footer-img{
+    width: 100%;
+}
+
+.footer-box{
+    padding: 20px;
+}
+/* --------- FOOTER ---------*/
