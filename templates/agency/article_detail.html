@@ -1,26 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    {{ article.title }}
-  </h1>
-  <h3>Topic: {{ article.topic.name }}</h3>
-  <h2>
-    <a href="{% url 'agency:article-delete' pk=article.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-
-    <a href="{% url 'agency:article-update' pk=article.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
-  </h2>
-  <p>
-    {{ article.content }}
-  </p>
-  <br>
-  <p>Brought to your attention by
-  {% for redactor in article.publishers.all %}
-    <a href="#"> {{ redactor.username }}</a>
-  {% endfor %}
-  </p>
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="banner-title regular-title">
+            {{ article.title }}
+          </h1>
+        </div>
+      </div>
+    </div>
+      {% load static %}
+      <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+ <section class="redactor-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          {{ article.content }}
+        </p>
+        <hr>
+        <p>Brought to your attention by
+          {% for redactor in article.publishers.all %}
+            <a href="{{ redactor.get_absolute_url }}"> {{ redactor.username }}</a>
+          {% endfor %}
+          <a href="{% url 'agency:article-delete' pk=article.id %}" class="btn btn-danger link-to-page">
+            Delete
+          </a>
+          <a href="{% url 'agency:article-update' pk=article.id %}" class="btn btn-secondary link-to-page">
+            Update
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+ </section>
 {% endblock %}
