@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Logged out!</p>
-
-  <a href="{% url 'login'%}">Click here to login again.</a>
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Sorry to see you go</h1>
+        </div>
+      </div>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+  <section class="logged-out">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <p>Changed you mind?</p>
+            <a href="{% url 'login'%}">Click here to login again.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
