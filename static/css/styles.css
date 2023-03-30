@@ -99,9 +99,50 @@ th {
     color: var(--fourth);
     margin-left: 5px;
 }
+.btn-danger {
+    background-color: var(--second);
+    border-color: var(--second);
+    color: black;
+    margin-left: 5px;
 
+}
+.btn-danger:hover {
+    background-color: var(--second);
+    border-color: var(--second);
+    color: black;
+    margin-left: 5px;
+}
+.btn-secondary {
+    background-color: var(--first);
+    border-color: var(--first);
+    margin-left: 5px;
+
+}
+.btn-secondary:hover {
+    background-color: var(--first);
+    border-color: var(--first);
+    color: var(--fourth);
+    margin-left: 5px;
+}
 .a-delete{
     color: var(--third);
+}
+.redactor-detail hr{
+    height: 8px;
+    background-image: linear-gradient(to right, var(--first), var(--second));
+
+    border: 0;
+    height: 1px;
+}
+
+.redactor-detail p {
+    color: var(--fourth);
+}
+.redactor-detail strong {
+    color: var(--first);
+}
+.redactor-detail h4{
+    color: var(--fourth);
 }
 /* --------- LIST-VIEW ---------*/
 /* --------- FOOTER ---------*/

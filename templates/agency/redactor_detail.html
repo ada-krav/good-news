@@ -1,33 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ redactor.username }}
-    <a href="{% url 'agency:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="banner-title regular-title">
+            Username: {{ redactor.username }}
+          </h1>
+        </div>
+      </div>
+    </div>
+      {% load static %}
+      <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+<section class="redactor-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <a href="{% url 'agency:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>
 
     <a href="{% url 'agency:redactor-update' pk=redactor.id %}" class="btn btn-secondary link-to-page">
       Update
     </a>
-  </h1>
+        </p>
 
-  <p><strong>First name:</strong> {{ redactor.first_name }}</p>
-  <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
-  <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
-  <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
+          <p><strong>First name:</strong> {{ redactor.first_name }}</p>
+        <hr>
+          <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
+        <hr>
+          <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
+        <hr>
+          <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
+        <hr>
 
-  <div class="ml-3">
-    <h4>Articles</h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Articles: </h4>
 
     {% for article in redactor.articles.all %}
         <hr>
         <p><strong>Title:</strong> {{ article.title }}</p>
         <p><strong>Topic:</strong> {{ article.topic.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{article.id}}</p>
-
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
+        <p><strong>Id:</strong> {{article.id}}</p>
+        {% empty %}
+        <p>No Articles yet</p>
+        {% endfor %}
+      </div>
+    </div>
   </div>
+</section>
 {% endblock %}
