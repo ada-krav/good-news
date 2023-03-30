@@ -154,6 +154,18 @@ h3.delete-conf{
     color: var(--first);
 }
 /* --------- LIST-VIEW ---------*/
+.page-item.active .page-link {
+    background-color: var(--fourth);
+    border-color: var(--fourth)
+}
+.page-link{
+    color: var(--fourth);
+    border-color: var(--fourth)
+}
+.page-link:hover{
+    color: var(--fourth);
+    border-color: var(--fourth)
+}
 /* --------- FOOTER ---------*/
 .footer {
     background-image: linear-gradient(to right, var(--first), var(--second));
