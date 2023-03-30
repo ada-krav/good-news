@@ -29,6 +29,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
     context_object_name = "topic_list"
     template_name = "agency/topic_list.html"
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(TopicListView, self).get_context_data(**kwargs)
@@ -110,7 +111,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class ArticleListView(LoginRequiredMixin, generic.ListView):
     model = Article
-    paginate_by = 10
+    paginate_by = 5
     template_name = "agency/article_list.html"
 
     def get_context_data(self, *, object_list=None, **kwargs):
