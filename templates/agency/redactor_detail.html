@@ -49,9 +49,9 @@
 
     {% for article in redactor.articles.all %}
         <hr>
-        <p><strong>Topic:</strong>
+        <p><strong>Title: </strong>
           <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        <p><strong>Title:</strong>{{ article.topic.name }}</p>
+        <p><strong>Topic: </strong>{{ article.topic.name }}</p>
         </p>
         <p><strong>Id:</strong> {{article.id}}</p>
         {% empty %}
