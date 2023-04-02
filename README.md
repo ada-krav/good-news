@@ -1,8 +1,8 @@
 # News Agency Project
 
-Django projegg for managing articles and redactors in Agency
+Django project for managing articles and redactors in Agency
 
-## Check ot out
+## Check it out
 
 [Agency project deployed to smthing](ADD_LNK_HERE)
 
