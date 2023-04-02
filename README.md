@@ -4,6 +4,12 @@ Django project for managing articles and redactors in Agency
 
 ## Check it out
 
+You'll need to log in:
+```
+login: just_looking
+password: Dfgh4_fglj
+```
+
 [Agency project deployed to render](https://news-agency.onrender.com/)
 
 ## Installation
