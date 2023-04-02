@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Login</h1>
+        </div>
+      </div>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+  <section class="redactor-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            {% if form.errors %}
+              <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+              <p>Please login to see this page.</p>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <input type="submit" value="Login" class="btn btn-primary" />
+              <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

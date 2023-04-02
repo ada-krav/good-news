@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="banner-title">Good News Agency</h1>
+          <p>Network for people in denial</p>
+        </div>
+        <div class="col-md-6 text-center">
+          {% load static %}
+          <img src="{% static 'images/team.png' %}" alt="Happy people" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
+  <section class="dyn-content">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 dyn-content">
+          {% load static %}
+          <img src="{% static 'images/articles.png' %}" alt="" class="dyn-img">
+          <h4>
+            <a href="{% url 'agency:article-list' %}">
+              {{ num_articles }} Articles
+            </a>
+          </h4>
+          <p>Jump straight into reading</p>
+        </div>
+        <div class="col-md-4 dyn-content">
+          {% load static %}
+          <img src="{% static 'images/redactors.png' %}" alt="" class="dyn-img">
+          <h4>
+            <a href="{% url 'agency:redactor-list' %}">
+              {{ num_redactors }} Redactors
+            </a>
+          </h4>
+          <p>They all said hello</p>
+        </div>
+        <div class="col-md-4 dyn-content">
+          {% load static %}
+          <img src="{% static 'images/topics.png' %}" alt="" class="dyn-img">
+          <h4>
+            <a href="{% url 'agency:topic-list' %}">
+              {{ num_topics }} Topics
+            </a>
+          </h4>
+          <p>What is this all about</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
