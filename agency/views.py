@@ -123,7 +123,7 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
         return contex
 
     def get_queryset(self):
-        queryset = Article.objects.all()
+        queryset = Article.objects.all().select_related("topic")
         form = ArticleSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(
