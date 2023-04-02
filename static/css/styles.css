@@ -1,10 +1,10 @@
 :root {
-  --first: #C0EEE4;
-  --second: #F8F988;
-  --third: #FFCAC8;
-  --fourth: #F48484
-
+  --first: #FFCB74;
+  --second: #B1B493;
+  --third: #4F8A8B;
+  --fourth: #07031A
 }
+
 body {
   min-height: 100vh;
   display: flex;
@@ -87,6 +87,10 @@ body {
 a {
   font-weight: bold;
     color: var(--first);
+}
+a:hover {
+  font-weight: bold;
+    color: var(--third);
 }
 th {
     color: var(--fourth);
