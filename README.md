@@ -4,7 +4,7 @@ Django project for managing articles and redactors in Agency
 
 ## Check it out
 
-[Agency project deployed to smthing](ADD_LNK_HERE)
+[Agency project deployed to render](https://news-agency.onrender.com/)
 
 ## Installation
 
