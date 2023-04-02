@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -145,3 +146,12 @@ class ArticleUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ArticleDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Article
     success_url = reverse_lazy("agency:article-list")
+
+
+@login_required
+def articles_by_topic(request, topic):
+    articles = Article.objects.filter(topic__name=topic)
+
+    return render(
+        request, "agency/articles_by_topic.html", {"articles": articles, "topic": topic}
+    )

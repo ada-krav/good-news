@@ -16,6 +16,7 @@ from agency.views import (
     RedactorCreateView,
     RedactorUpdateView,
     RedactorDeleteView,
+    articles_by_topic,
 )
 
 
@@ -47,6 +48,7 @@ urlpatterns = [
     path(
         "articles/<int:pk>/delete", ArticleDeleteView.as_view(), name="article-delete"
     ),
+    path("articles/about/<str:topic>", articles_by_topic, name="article-topic"),
 ]
 
 app_name = "agency"

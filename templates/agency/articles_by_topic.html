@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
-
 {% block content %}
   <section class="banner">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1 class="banner-title regular-title">
-            Topics
+            Articles about {{ topic }}
           </h1>
         </div>
       </div>
@@ -16,45 +15,38 @@
       <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
   </section>
   <section class="table-list">
-  {% if topic_list %}
+  {% if articles %}
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div>
             <form action="" method="get" class="form-inline">
-              {{ search_form|crispy }}
-              <input class="btn btn-primary" type="submit" value="🔍">
-              <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
-                Add New Topic
+              <a href="{% url 'agency:article-create' %}" class="btn btn-primary link-to-page">
+                Add New Article
+              </a>
+              <a href="{% url 'agency:topic-list' %}" class="btn btn-primary link-to-page">
+                Go back to topics
               </a>
             </form>
           </div>
           <table class="table table-borderless">
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Title</th>
+              <th>Topic</th>
             </tr>
-            {% for topic in topic_list %}
+            {% for article in articles %}
             <tr>
               <td>
-                {{ topic.id }}
+                {{ article.id }}
               </td>
               <td>
-                <a href="{% url 'agency:article-topic' topic=topic.name %}">
-                  {{ topic.name }}
+                <a href="{{ article.get_absolute_url }}">
+                  {{ article.title }}
                 </a>
               </td>
               <td>
-                <a href="{% url 'agency:topic-update' pk=topic.id %}">
-                  Edit
-                </a>
-              </td>
-              <td>
-                <a class="a-delete" href="{% url 'agency:topic-delete' pk=topic.id %}">
-                  Delete
-                </a>
+                {{ article.topic.name }}
               </td>
             </tr>
             {% endfor %}
@@ -63,7 +55,20 @@
       </div>
     </div>
   {% else %}
-    <h5 class="no-data">There are no topics</h5>
+    <div class="container">
+      <h5 class="no-data">There are no articles about {{ topic }} yet</h5>
+      <hr>
+      <div>
+        <form action="" method="get" class="form-inline">
+          <a href="{% url 'agency:article-create' %}" class="btn btn-primary link-to-page">
+            Add New Article
+          </a>
+          <a href="{% url 'agency:topic-list' %}" class="btn btn-primary link-to-page">
+            Go back to topics
+          </a>
+        </form>
+      </div>
+    </div>
   {% endif %}
   </section>
 {% endblock %}

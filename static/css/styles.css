@@ -166,6 +166,9 @@ h3.delete-conf{
     color: var(--fourth);
     border-color: var(--fourth)
 }
+.no-data{
+    color: var(--fourth);
+}
 /* --------- FOOTER ---------*/
 .footer {
     background-image: linear-gradient(to right, var(--first), var(--second));
