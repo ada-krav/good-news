@@ -11,9 +11,7 @@ class TopicSearchForm(forms.Form):
         max_length=63,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by name"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
     )
 
 
@@ -22,9 +20,7 @@ class RedactorSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by username"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),
     )
 
 
@@ -33,9 +29,7 @@ class ArticleSearchForm(forms.Form):
         max_length=127,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by title"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by title"}),
     )
 
 
@@ -66,11 +60,7 @@ class RedactorCreationForm(UserCreationForm):
 class RedactorUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
-        fields = [
-            "years_of_experience",
-            "first_name",
-            "last_name"
-        ]
+        fields = ["years_of_experience", "first_name", "last_name"]
 
     def clean_years_of_experience(self):
         return validate_experience(self.cleaned_data["years_of_experience"])

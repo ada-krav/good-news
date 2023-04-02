@@ -4,8 +4,14 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from agency.forms import TopicSearchForm, RedactorSearchForm, ArticleSearchForm, ArticleForm, RedactorCreationForm, \
-    RedactorUpdateForm
+from agency.forms import (
+    TopicSearchForm,
+    RedactorSearchForm,
+    ArticleSearchForm,
+    ArticleForm,
+    RedactorCreationForm,
+    RedactorUpdateForm,
+)
 from agency.models import Redactor, Article, Topic
 
 
@@ -34,18 +40,14 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(TopicListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        contex["search_form"] = TopicSearchForm(
-            initial={"name": name}
-        )
+        contex["search_form"] = TopicSearchForm(initial={"name": name})
         return contex
 
     def get_queryset(self):
         queryset = Topic.objects.all()
         form = TopicSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
 
 
@@ -73,18 +75,14 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(RedactorListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        contex["search_form"] = RedactorSearchForm(
-            initial={"username": username}
-        )
+        contex["search_form"] = RedactorSearchForm(initial={"username": username})
         return contex
 
     def get_queryset(self):
         queryset = Redactor.objects.all()
         form = RedactorSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                username__icontains=form.cleaned_data["username"]
-            )
+            return queryset.filter(username__icontains=form.cleaned_data["username"])
         return queryset
 
 
@@ -117,18 +115,14 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(ArticleListView, self).get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
-        contex["search_form"] = ArticleSearchForm(
-            initial={"title": title}
-        )
+        contex["search_form"] = ArticleSearchForm(initial={"title": title})
         return contex
 
     def get_queryset(self):
         queryset = Article.objects.all().select_related("topic")
         form = ArticleSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                title__icontains=form.cleaned_data["title"]
-            )
+            return queryset.filter(title__icontains=form.cleaned_data["title"])
         return queryset
 
 
