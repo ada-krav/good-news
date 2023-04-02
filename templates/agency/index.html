@@ -1,27 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="banner">
+  <section class="banner">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1 class="banner-title">Good News Agency</h1>
-
           <p>Network for people in denial</p>
         </div>
         <div class="col-md-6 text-center">
           {% load static %}
           <img src="{% static 'images/team.png' %}" alt="Happy people" class="img-fluid">
-
-
         </div>
       </div>
     </div>
-      {% load static %}
-          <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
-    </section>
+    {% load static %}
+    <img src="{% static 'images/wave_up.png' %}" alt="" class="bottom-img">
+  </section>
   <section class="dyn-content">
-
     <div class="container">
       <div class="row text-center">
         <div class="col-md-4 dyn-content">
@@ -57,5 +53,4 @@
       </div>
     </div>
   </section>
-
 {% endblock %}
